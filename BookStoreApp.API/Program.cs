@@ -1,9 +1,15 @@
+using BookStoreApp.API.Configuratios;
+using BookStoreApp.API.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var connString = builder.Configuration.GetConnectionString("BookStoreAppDBConnection");
+builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseSqlServer(connString));
 // Add services to the container.
+
+builder.Services.AddAutoMapper(typeof(MapperConfig));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -23,7 +29,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-
+    
     app.UseSwagger();
     app.UseSwaggerUI();
 }
