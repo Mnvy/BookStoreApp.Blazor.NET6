@@ -37,7 +37,7 @@ namespace BookStoreApp.API.Data
                 entity.HasIndex(e => e.Isbn, "UQ__Books__447D36EA6D0AC978")
                     .IsUnique();
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                //entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.AuthorId).HasColumnName("AuthorID");
 

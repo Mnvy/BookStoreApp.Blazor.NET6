@@ -10,7 +10,7 @@ using BookStoreApp.API.Models.Author;
 using AutoMapper;
 using BookStoreApp.API.Static;
 
-namespace BookStoreApp.API.Controllers
+namespace BookStoreApp.API.Controllers      
 {
     [Route("api/[controller]")]
     [ApiController]
